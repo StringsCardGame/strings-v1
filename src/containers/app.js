@@ -5,8 +5,9 @@ const { Link } = require('react-router')
 const App = (props) => {
   return (
     <div>
-      hello world
+      {props.children}
     </div>
+
   )
 }
 
