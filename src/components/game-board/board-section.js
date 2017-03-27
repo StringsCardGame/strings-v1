@@ -2,28 +2,35 @@ const React = require('react')
 const { connect } = require('react-redux')
 const { Link } = require('react-router')
 
-const BoardSection = (props) => {
-  const { section } = props
-  function displaySection(section, cb){
-    return section.map(row => {
-      return row.map(cb)
-    })
+class BoardSection extends React.Component {
+
+  handleClick(tile){
+    console.log('clicked', tile)
   }
-  function displayTile(tile){
-    return(
-      <div className='tile' >
+
+  render(){
+    console.log(this);
+    const { section, dispatch } = this.props
+    function displaySection(section, cb){
+      return section.map(row => {
+        return row.map(cb)
+      })
+    }
+    function displayTile(tile){
+      return(
+        <div className='tile' onClick={() => dispatch({type: 'EXAMINE_TILE', payload: tile})}>
         {tile.type}<br />
         pop: {tile.population}
+        </div>
+      )
+    }
+
+    return (
+      <div>
+      {displaySection(section, displayTile)}
       </div>
     )
   }
-  console.log(displaySection(section, displayTile))
-
-  return (
-    <div>
-      {displaySection(section, displayTile)}
-    </div>
-  )
 }
 
 module.exports = BoardSection

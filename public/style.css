@@ -1,4 +1,5 @@
 .tile{
   display: inline-block;
-  width: 33%;
+  width: 32%;
+  border: 2px solid black;
 }
