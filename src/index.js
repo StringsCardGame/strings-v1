@@ -11,6 +11,7 @@ const reducer = require('./reducer')
 const initialState = require('../state')
 // components
 const App = require('./containers/app')
+const Game = require('./containers/game')
 // actions
 // plain object {type: string, payload: Object | string | number}
 
@@ -26,6 +27,7 @@ const Root = ({store}) => {
       <Provider store={store} >
         <Router history={hashHistory}>
           <Route path='/' component={App}>
+            <Route path='/game' component={Game} />
           </Route>
         </Router>
       </Provider>
