@@ -16,9 +16,9 @@ const GameBoard = (props) => {
   return (
     <div>
       <div>
-        <BoardSection section={lower} dispatch={dispatch} /><br /><br />
-        <BoardSection section={middle} dispatch={dispatch} /><br /><br />
-        <BoardSection section={upper} dispatch={dispatch} />
+        <BoardSection section={{position:'lower', tiles: lower}} dispatch={dispatch} /><br /><br />
+        <BoardSection section={{position:'middle', tiles: middle}} dispatch={dispatch} /><br /><br />
+        <BoardSection section={{position:'upper', tiles: upper}} dispatch={dispatch} />
       </div>
         {tileDisplayed}
     </div>

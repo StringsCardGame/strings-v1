@@ -11,14 +11,18 @@ class BoardSection extends React.Component {
   render(){
     console.log(this);
     const { section, dispatch } = this.props
-    function displaySection(section, cb){
-      return section.map(row => {
+    const { postion, tiles } = section
+    function displaySection(tiles, cb){
+      return tiles.map(row => {
         return row.map(cb)
       })
     }
     function displayTile(tile){
       return(
-        <div className='tile' onClick={() => dispatch({type: 'EXAMINE_TILE', payload: tile})}>
+        <div
+          className='tile'
+          onClick={() => dispatch({type: 'EXAMINE_TILE', payload: tile})}
+        >
         {tile.type}<br />
         pop: {tile.population}
         </div>
@@ -27,7 +31,7 @@ class BoardSection extends React.Component {
 
     return (
       <div>
-      {displaySection(section, displayTile)}
+      {displaySection(tiles, displayTile)}
       </div>
     )
   }
